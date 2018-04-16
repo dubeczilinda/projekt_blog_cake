@@ -1,0 +1,150 @@
+#at-login.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+    .modal-dialog(role="document")
+        .modal-content
+            .modal-header
+                button.close(type="button" data-dismiss="modal" aria-label="Close")
+                span(aria-hidden="true") ×
+            .modal-body
+                button.btn-fb
+                    i.fa.fa-fw.fa-facebook.pull-left(aria-hidden="true")
+                    | 									Login with Facebook
+                br
+                button.btn-gp
+                    i.fa.fa-fw.fa-google-plus.pull-left(aria-hidden="true")
+                    | 										Login with Google
+                br
+                .signup-or-separator
+                    span.h6.signup-or-separator--text or
+                    hr
+                form
+                .form-group
+                    input#exampleInputEmaillog.form-control-form(type="email" placeholder="Email")
+                .form-group
+                    input#exampleInputPasswordpas.form-control-form(type="password" placeholder="Password")
+                .row
+                    .col-md-6
+                    .checkbox
+                        label
+                        input(type="checkbox")
+                        |  Remember me
+                    .col-md-4.col-md-offset-2
+                    p.frgt-pswd(data-toggle="modal" data-dismiss="modal" data-target="#at-reset-pswd") 	Forgot Password ?
+                button.btn-lgin(type="submit") Login
+            .modal-footer
+                .row
+                    .col-md-6
+                        p.ta-l Don't have an account ? 
+                    .col-md-4.col-md-offset-2
+                        button.btn-gst(data-toggle="modal" data-dismiss="modal" data-target="#at-signup") Sign Up 
+
+    #at-signup.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+      .modal-dialog(role="document")
+        .modal-content
+          .modal-header
+            button.close(type="button" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") ×
+          .modal-body
+            button.btn-fb
+              i.fa.fa-fw.fa-facebook.pull-left(aria-hidden="true")
+              | 											Signup with Facebook
+            br
+            button.btn-gp
+              i.fa.fa-fw.fa-google-plus.pull-left(aria-hidden="true")
+              | 												Signup with Google
+            br
+            .signup-or-separator
+              span.h6.signup-or-separator--text or
+              hr
+            button.btn-lgin(type="submit" data-toggle="modal" data-dismiss="modal" data-target="#at-signup-filling") Signup with Email
+            hr
+            p
+              | By signing up, I agree to Airbnb’s , Payments 
+              a(href="#") Terms of Service
+              | , 
+              a(href="#") Privacy Policy
+              | , 
+              a(href="#") Guest Refund Policy
+              | , and 
+              a(href="#") Host Guarantee Terms
+              | .
+          .modal-footer
+            .row
+              .col-md-6
+                p.ta-l Already a Member? 
+              .col-md-4.col-md-offset-2
+                button.btn-gst(data-toggle="modal" data-dismiss="modal" data-target="#at-login") Login
+    // MODAL SIGNUP FORM FILLING
+    #at-signup-filling.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+      .modal-dialog(role="document")
+        .modal-content
+          .modal-header
+            button.close(type="button" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") ×
+          .modal-body
+            p
+              | Sign up with 
+              a(href="#") Facebook
+              |   or 
+              a(href="#") Google
+            .signup-or-separator
+              span.h6.signup-or-separator--text or
+              hr
+            form
+              .form-group
+                input#exampleInputEmaillog.form-control-form(type="text" placeholder="Full Name")
+              .form-group
+                input#exampleInputEmaillog.form-control-form(type="email" placeholder="Email")
+              .form-group
+                input#exampleInputPasswordpas.form-control-form(type="password" placeholder="Password")
+              .row
+                .col-md-12
+                  .checkbox
+                    label
+                      input(type="checkbox")
+                      | 																	I’d like to receive coupons and inspiration
+                  p
+                    | By signing up, I agree to Airbnb’s , Payments 
+                    a(href="#") Terms of Service
+                    | , 
+                    a(href="#") Privacy Policy
+                    | , 
+                    a(href="#") Guest Refund Policy
+                    | , and 
+                    a(href="#") Host Guarantee Terms
+                    | .
+              button.btn-lgin(type="submit") Signup
+          .modal-footer
+            .row
+              .col-md-6
+                p.ta-l Already a Member? 
+              .col-md-4.col-md-offset-2
+                button.btn-gst(data-toggle="modal" data-dismiss="modal" data-target="#at-login") Login
+    // MODAL SIGNUP FORM FILLING
+    // MODAL FORGOT PASSWORD
+    #at-reset-pswd.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+      .modal-dialog(role="document")
+        .modal-content
+          .modal-header
+            button.close(type="button" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") ×
+          .modal-body
+            form
+              p
+                | Enter the email address associated with your account, and we’ll email you a link to reset your password.
+              .form-group
+                input#exampleInputEmaillog.form-control-form(type="email" placeholder="Email")
+          .modal-footer
+    // MODAL HELP
+    #at-helping.modal.fade(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+      .modal-dialog(role="document")
+        .modal-content
+          .modal-header
+            button.close(type="button" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") ×
+          .modal-body
+            form
+              .form-group
+                input#exampleInputEmaillog.form-control-form(type="text" placeholder="Enter Your Searches ")
+          .modal-footer
+            .row
+              button.btn-gst(data-toggle="modal" data-dismiss="modal") Send areset Link

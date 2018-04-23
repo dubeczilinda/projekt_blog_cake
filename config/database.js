@@ -1,16 +1,14 @@
 const host = 'localhost'
-
 const port = 27017
-
-const user = 'cakemania'
-const password = 'cake'
-const database = 'cakeBlog'
+const user = 'root'
+const password = 'toor'
+const database = 'blog'
 
 const options = {
   connectTimeoutMS: 2000,
   autoIndex: false,
   reconnectTries: Number.MAX_VALUE, 
-  reconnectInterval: 100, 
+  reconnectInterval: 500, 
   poolSize: 10, 
   bufferMaxEntries: 0
 }

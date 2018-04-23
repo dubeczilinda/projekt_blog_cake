@@ -1,9 +1,17 @@
 const mongoose = require('mongoose');
+const passportLocalMongoose = require('passport-local-mongoose');
+const User = require('../models/users.model');
+const Comment = require('../models/comments.model');
 
 const BlogPostSchema = new mongoose.Schema({
+  _author: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User', 
+    required: true 
+  },
   type: {
     type: String,
-    enum: ['Torta', 'Brownie', 'Kalács', 'Sütemény'],
+    enum: ['Torta', 'Brownie', 'Kalács', 'Sütemény', 'Gyümölcsös'],
     required: true
   },
   title: {
@@ -16,16 +24,20 @@ const BlogPostSchema = new mongoose.Schema({
   },
   picture: {
     type: String,
-    required: true
+    required: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now
+  link: {
+    type: String,
+    required: true,
   },
-  updatedAt: {
-    type: Date,
-    default: Date.now
+  comments: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Comment'
+  }], 
+},
+  {
+    timestamps: true
   }
-})
+);
 
 module.exports = mongoose.model('BlogPost', BlogPostSchema)

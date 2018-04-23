@@ -1,49 +1,59 @@
-const Post = require('../models/blogPost.model');
+const blogPost = require('../models/blogPost.model');
 
 module.exports = {
-  list: (req, res) => {
-    Post.find({}, (err, post) => {
+  getAllBlogposts: (req, res) => {
+    blogPost.find({}, (err, blogPost) => {
       if (err) {
         res.send(err)
       }
-      res.json(post)
+      res.json(blogPost)
     })
   },
 
-  find: (req, res) => {
-    Post.findById(req.params.id, (err, post) => {
+  getBlogpost: (req, res) => {
+    blogPost.findById(req.params.id, (err, blogPost) => {
       if (err) {
-        res.send(err)
+        res.send({
+          error: err
+        })
       }
-      res.json(post)
+      res.json(blogPost)
     })
   },
 
-  create: (req, res) => {
-    Post.create(req.body, (err, post) => {
-      if (err) {
-        res.send(err)
-      }
-      res.json(post)
+  createBlogpost: (req, res, next) => {
+    blogPost.create(req.body, (err, blogpost) => {
+        if (err) {
+            res.json({error: err})
+        }
+        res.json({
+            success: 'Sikeresen létrehozva'
+        });
     })
-  },
-
-  update: (req, res) => {
+},
+ 
+  updateBlogpost: (req, res) => {
     req.body.updatedAt = new Date().toLocaleDateString();
-    Post.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
+    blogPost.findByIdAndUpdate(req.params.id, req.body, (err, blogPost) => {
       if (err) {
-        res.send(err)
+        res.send({
+          error: err
+        })
       }
-      res.json(post)
+      res.json(blogPost)
     })
   },
 
-  remove: (req, res) => {
-    Post.findByIdAndRemove(req.params.id, (err, post) => {
+  removeBlogpost: (req, res) => {
+    blogPost.findByIdAndRemove(req.params.id, (err, blogPost) => {
       if (err) {
-        res.send(err)
+        res.send({
+          error: err
+        })
       }
-      res.json(post)
+      res.json({
+        success: 'Sikeresen törölve'
+      })
     })
   }
 }
